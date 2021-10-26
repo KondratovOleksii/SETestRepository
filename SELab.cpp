@@ -3,15 +3,6 @@
 
 #include <iostream>
 
-double multiplicationJPlusX(double x, int n)
-{
-	double multiplication = 1.0;
-	for (int i = 2; i < n - 1; i++) {
-		multiplication *= i + x;
-	}
-	return multiplication;
-}
-
 double multiplicationXPlusIPlusJMultiplyJ(double x, int n, int i)
 {
 	double multiplication = 1.0;
@@ -24,7 +15,11 @@ double multiplicationXPlusIPlusJMultiplyJ(double x, int n, int i)
 double y(double x, int n) {
 	double addition = 0.0;
 	if (x < 0) {
-		return multiplicationJPlusX(x, n);
+		double multiplication = 1.0;
+		for (int i = 2; i < n - 1; i++) {
+			multiplication *= i + x;
+		}
+		return multiplication;
 	}
 	for (int i = 0; i < n; i++) {
 		addition += multiplicationXPlusIPlusJMultiplyJ(x, n, i);
